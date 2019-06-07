@@ -1,0 +1,58 @@
+# ----------------------------------------
+# GENERIC CORE PROPERTIES
+# PROFILE SPECIFIC IN DEV , QA AND PROD APPLICATION-{PROFILE}.YML FILES 
+# ----------------------------------------
+
+
+# ----------------------------------------
+# CORE PROPERTIES
+# ----------------------------------------
+#LOGGING
+logging:
+  file: logs/application.log
+    
+    
+
+    
+#-----------------------------------------
+# PROFILES
+#-----------------------------------------
+spring:
+  profiles:
+    active:
+      - PROD
+     
+    
+    
+#-----------------------------------------
+# CUSTOM PROPERTIES
+#-----------------------------------------   
+config:
+  props:
+    path: /config
+
+
+# ----------------------------------------
+# ACTUATOR PROPERTIES
+# ----------------------------------------
+info:
+  component: ELIGIBILITY CHECK SERVICE
+  
+management:
+  endpoints:
+    enabled-by-default: true
+  server:
+    servlet:
+      context-path: /
+  endpoint:
+    threaddump:
+      enabled: true
+    metrics:
+      enabled: true
+    info:
+      enabled: true
+    health:
+      enabled: true
+    beans:
+      enabled: true
+

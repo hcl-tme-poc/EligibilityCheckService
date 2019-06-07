@@ -1,0 +1,60 @@
+
+# ----------------------------------------
+# WEB PROPERTIES
+# ----------------------------------------
+# EMBEDDED SERVER CONFIGURATION
+server:
+  port: 12001
+  
+  
+  
+# CLOUD CONFIG
+#-------------------------------  
+eureka:  
+  client:
+    serviceUrl:
+      defaultZone: http://${registry.host:localhost}:${registry.port:9001}/eureka/
+#      defaultZone: ${DISCOVERY_URL:https://customer-portal-discovery-service.cfapps.io}/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+          
+ribbon:
+  eureka:
+    enabled: true
+  
+  
+  
+  
+
+
+# ----------------------------------------
+# DATASOURCE PROPERTIES
+# ----------------------------------------
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+      
+      
+      
+      
+      
+      
+      
+#-----------------------------------------
+# CUSTOM PROPERTIES - H2 Database
+#----------------------------------------- 
+app:
+  prod:
+    datasource:
+      jdbcurl: jdbc:h2:file:~/eligibility_service
+      username: root
+      password: admin
+      driver-class-name: org.h2.Driver
+      maximum-pool-size: 30
+      
+  h2:
+    console:
+      enabled: true
+      path: /h2
