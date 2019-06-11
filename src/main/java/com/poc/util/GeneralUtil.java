@@ -1,21 +1,34 @@
 package com.poc.util;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
-import com.poc.repository.AccountRepository;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class GeneralUtil {
-
-	@Autowired
-	private AccountRepository accountRepository;
-
-	public String createAccountDisplayId() {
-		Long accountsCount = accountRepository.count();
-		accountsCount++;
-		return "ACCT1001" + accountsCount;
-
+	
+	public float getDateDiff(String _requestdate) {
+		
+		SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Calendar cal = Calendar.getInstance();
+		float daysBetween=0;
+		try {
+			 Date dateBefore = myFormat.parse(_requestdate);
+		     Date dateAfter = new Date();
+		     long difference = dateAfter.getTime() - dateBefore.getTime();
+		     daysBetween = (difference / (1000*60*60*24));
+		     if(daysBetween<0)
+		    	 daysBetween =0;
+		     
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	     return daysBetween;
+		
 	}
+	
 
 }

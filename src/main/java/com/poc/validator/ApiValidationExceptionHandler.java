@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-@ControllerAdvice(basePackages={"com.accountmanagement.api"})
+@ControllerAdvice(basePackages={"com.poc.api"})
 public class ApiValidationExceptionHandler extends ResponseEntityExceptionHandler {
 
 	 @Override
