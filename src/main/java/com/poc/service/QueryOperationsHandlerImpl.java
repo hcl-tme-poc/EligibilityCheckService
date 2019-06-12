@@ -38,6 +38,8 @@ public class QueryOperationsHandlerImpl implements QueryOperationsHandler{
 		
 		List<ResponseReasons> reasons = new ArrayList<ResponseReasons>();
 		
+		eligibilityCheckResponseBean.setMessage("Eligible for License Renewal");
+		
 		// Check Health Card Expiry
 		if(generalUtil.getDateDiff(driverDetails.getDriverHealthCardExpDate())>90) {
 			eligibilityCheckResponseBean.setMessage("Not eligible for License Renewal");
@@ -46,13 +48,9 @@ public class QueryOperationsHandlerImpl implements QueryOperationsHandler{
 			reason.setReasonDescription("Health Card is expired for more than 90 days");
 			reasons.add(reason);
 		}
-		else {
-			eligibilityCheckResponseBean.setMessage("Eligible for License Renewal");
-		}
+
 		
-		
-		// Check License Card expiry
-		
+		// Check License Card expiry		
 		if(generalUtil.getDateDiff(driverDetails.getDriverLicenseExpDate())>90) {
 			eligibilityCheckResponseBean.setMessage("Not eligible for License Renewal");
 			ResponseReasons reason = new ResponseReasons();
@@ -60,38 +58,11 @@ public class QueryOperationsHandlerImpl implements QueryOperationsHandler{
 			reason.setReasonDescription("License is expired for more than 90 days");
 			reasons.add(reason);
 		}
-		else {
-			eligibilityCheckResponseBean.setMessage("Eligible for License Renewal");
-		}
-
 
 		
 		
 		eligibilityCheckResponseBean.setReasons(reasons);
 		return eligibilityCheckResponseBean;
 	}
-
-/*	@Override
-	public List<Account> getAllAccounts() {
-		return accountRepository.findAll();
-	}
-
-	@Override
-	public Account getAccountByDisplayId(String _accountDisplayId) {
-		return accountRepository.findByAccountDisplayId(_accountDisplayId);
-	}
-
-	@Override
-	public List<Account> searchAccounts(String _accountDisplayId,
-			String _customerDisplayId) {
-		return accountRepository.findByAccountDisplayIdOrCustomerDisplayIdContainingIgnoreCase(_accountDisplayId, _customerDisplayId);
-	}
-
-	@Override
-	public List<Account> getAccountByCustomerDisplayId(String _customerDisplayId) {
-		return accountRepository.findByCustomerDisplayIdIgnoreCase(_customerDisplayId);
-	}
-*/
-
 	
 }
