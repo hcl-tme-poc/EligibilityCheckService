@@ -13,7 +13,7 @@ server:
 eureka:  
   client:
     serviceUrl:
-      defaultZone: http://${registry.host:localhost}:${registry.port:9001}/eureka/
+      defaultZone: http://${registry.host:localhost}:${registry.port:11001}/eureka/
 #      defaultZone: ${DISCOVERY_URL:https://customer-portal-discovery-service.cfapps.io}/eureka/
   instance:
     leaseRenewalIntervalInSeconds: 1
