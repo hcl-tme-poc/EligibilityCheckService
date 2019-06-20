@@ -12,13 +12,14 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import com.poc.beans.EligibilityCheckRequestBean;
 import com.poc.beans.EligibilityCheckResponseBean;
 import com.poc.service.EligibiliyCheckProcessor;
 import com.poc.service.QueryOperationsHandler;
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(SpringRunner.class)
 public class EligibilityCheckAPITests {
 
 	@Mock
@@ -43,7 +44,6 @@ public class EligibilityCheckAPITests {
 		response.setMessage("test");
 		response.setReasons(null);
 		
-		//when(queryOperationsHandler.checkDriverEligibility(request)).thenReturn(response);
 		ResponseEntity<EligibilityCheckResponseBean> check = checkAPI.doEligibilityCheck(request);
 		assertEquals(HttpStatus.OK, check.getStatusCode());
 	}
