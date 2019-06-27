@@ -15,7 +15,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		registry.addMapping("/**")
 			//.allowedOrigins("http://domain2.com")
 			.allowedMethods("PUT", "DELETE","GET","POST","OPTIONS")
-			//.allowedHeaders("header1", "header2", "header3")
+			.allowedHeaders("*")
 			//.exposedHeaders("header1", "header2")
 			.allowCredentials(false).maxAge(3600);
 
