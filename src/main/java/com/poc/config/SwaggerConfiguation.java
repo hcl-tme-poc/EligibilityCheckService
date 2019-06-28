@@ -33,8 +33,7 @@ public class SwaggerConfiguation {
 		
 
 
-			
-			
+		
 
 			//ACCOUNT MANAGEMENT METADATA
 			private ApiInfo accountManagementMetaData() {
