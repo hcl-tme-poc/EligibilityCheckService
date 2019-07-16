@@ -102,7 +102,7 @@ public class EligibilityCheckAPI {
 			EligibilityCheckResponseBean eligibilityCheckResponseBean = new EligibilityCheckResponseBean();
 			List<ResponseReasons> reasons = new ArrayList<ResponseReasons>();
 			
-			eligibilityCheckResponseBean.setMessage("Eligible for License Renewal");
+			eligibilityCheckResponseBean.setMessage("You are eligible to renew your driver’s license");
 			
 			return new ResponseEntity<EligibilityCheckResponseBean>(
 					eligibilityCheckResponseBean, HttpStatus.OK);
@@ -113,7 +113,7 @@ public class EligibilityCheckAPI {
 			EligibilityCheckResponseBean eligibilityCheckResponseBean = new EligibilityCheckResponseBean();
 			List<ResponseReasons> reasons = new ArrayList<ResponseReasons>();
 			
-			eligibilityCheckResponseBean.setMessage("Not Eligible for License Renewal");
+			eligibilityCheckResponseBean.setMessage("You are not eligible to renew your driver’s license");
 			ResponseReasons reason1 = new ResponseReasons();
 			reason1.setReasonName("Health Card Expiry");
 			reason1.setReasonDescription("Health Card is expired for more than 90 days");
@@ -150,7 +150,7 @@ public class EligibilityCheckAPI {
 		eligibilityCheckResponseBean.setReasons(reasons);
 		
 		return new ResponseEntity<EligibilityCheckResponseBean>(
-				eligibilityCheckResponseBean, HttpStatus.OK);
+				eligibilityCheckResponseBean, HttpStatus.UNAUTHORIZED);
 	}
 
 
@@ -202,7 +202,7 @@ public class EligibilityCheckAPI {
 			EligibilityCheckResponseBean eligibilityCheckResponseBean = new EligibilityCheckResponseBean();
 			List<ResponseReasons> reasons = new ArrayList<ResponseReasons>();
 			
-			eligibilityCheckResponseBean.setMessage("Eligible for License Renewal");
+			eligibilityCheckResponseBean.setMessage("You are eligible to renew your driver’s license");
 			
 			
 			
@@ -257,7 +257,7 @@ public class EligibilityCheckAPI {
 			EligibilityCheckResponseBean eligibilityCheckResponseBean = new EligibilityCheckResponseBean();
 			List<ResponseReasons> reasons = new ArrayList<ResponseReasons>();
 			
-			eligibilityCheckResponseBean.setMessage("Not Eligible for License Renewal");
+			eligibilityCheckResponseBean.setMessage("You are not eligible to renew your driver’s license");
 			ResponseReasons reason1 = new ResponseReasons();
 			reason1.setReasonName("Health Card Expiry");
 			reason1.setReasonDescription("Health Card is expired for more than 90 days");
@@ -271,7 +271,7 @@ public class EligibilityCheckAPI {
 			eligibilityCheckResponseBean.setReasons(reasons);
 			
 			return new ResponseEntity<EligibilityCheckResponseBean>(
-					eligibilityCheckResponseBean, HttpStatus.OK);
+					eligibilityCheckResponseBean, HttpStatus.UNAUTHORIZED);
 			
 		}
 
@@ -290,7 +290,7 @@ public class EligibilityCheckAPI {
 		eligibilityCheckResponseBean.setReasons(reasons);
 		
 		return new ResponseEntity<EligibilityCheckResponseBean>(
-				eligibilityCheckResponseBean, HttpStatus.OK);
+				eligibilityCheckResponseBean, HttpStatus.UNAUTHORIZED);
 	}
 
 }
