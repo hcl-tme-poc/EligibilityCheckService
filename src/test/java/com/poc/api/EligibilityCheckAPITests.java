@@ -75,7 +75,7 @@ public class EligibilityCheckAPITests {
 		String _postalCode="560040";
 		Date _dob = null;
 		ResponseEntity<EligibilityCheckResponseBean> check = checkAPI.doEligibilityCheckGuest(_driverLicenseNumber, _trilliumNumber, _postalCode, _dob);
-		assertEquals(HttpStatus.OK, check.getStatusCode());
+		assertEquals(HttpStatus.UNAUTHORIZED, check.getStatusCode());
 	}
 	
 	@Test
@@ -103,7 +103,7 @@ public class EligibilityCheckAPITests {
 		boolean eyeVisionStatus= true;
 		boolean accidentStatus= true;
 		ResponseEntity<EligibilityCheckResponseBean> check = checkAPI.doLicenseQuestionsCheck(_driverLicenseNumber, driverEmail, musclePain, drivingHabitsStatus, cardiacStatus, breathStatus, eyeVisionStatus, accidentStatus);
-		assertEquals(HttpStatus.OK, check.getStatusCode());
+		assertEquals(HttpStatus.UNAUTHORIZED, check.getStatusCode());
 	}
 	
 	@Test
@@ -117,7 +117,7 @@ public class EligibilityCheckAPITests {
 		boolean eyeVisionStatus= true;
 		boolean accidentStatus= true;
 		ResponseEntity<EligibilityCheckResponseBean> check = checkAPI.doLicenseQuestionsCheck(_driverLicenseNumber, driverEmail, musclePain, drivingHabitsStatus, cardiacStatus, breathStatus, eyeVisionStatus, accidentStatus);
-		assertEquals(HttpStatus.OK, check.getStatusCode());
+		assertEquals(HttpStatus.UNAUTHORIZED, check.getStatusCode());
 	}
 	
 }
